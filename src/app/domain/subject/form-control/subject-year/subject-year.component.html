@@ -1,0 +1,5 @@
+<ng-container *ngIf="entityForm" [formGroup]="entityForm">
+  <label for="year" class="form-label">Year</label>
+  <input type="text" class="form-control" id="year" formControlName="year" [readonly]="isDisabled">
+  <app-subject-year-validator [year]="year"></app-subject-year-validator>
+</ng-container>

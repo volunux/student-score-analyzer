@@ -1,0 +1,10 @@
+<ng-container *ngIf="year && year?.invalid && (year?.dirty || year?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="year?.errors?.['required']"> Year is required</li>
+      <li *ngIf="year?.errors?.['minlength']"> Year should be at least {{year.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="year?.errors?.['maxlength']"> Year should not be more than {{year.errors?.['maxlength'].requiredLength}} characters long</li>
+      <li *ngIf="year.errors?.['type']"> Year must be valid, an integer and should conform to specification e.g. 2022 </li>
+    </ul>
+  </div>
+</ng-container>

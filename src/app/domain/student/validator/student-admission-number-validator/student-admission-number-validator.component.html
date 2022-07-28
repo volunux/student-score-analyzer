@@ -1,0 +1,9 @@
+<ng-container *ngIf="admissionNumber && admissionNumber?.invalid && (admissionNumber?.dirty || admissionNumber?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="admissionNumber?.errors?.['required']">Admission Number is required</li>
+      <li *ngIf="admissionNumber?.errors?.['minlength']">Admission Number should be at least {{admissionNumber.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="admissionNumber?.errors?.['maxlength']">Admission Number should not be more than {{admissionNumber.errors?.['maxlength'].requiredLength}} characters long</li>
+    </ul>
+  </div>
+</ng-container>

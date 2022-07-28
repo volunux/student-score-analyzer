@@ -1,0 +1,4 @@
+<ng-container *ngIf="entityForm" [formGroup]="$entityForm">
+  <label for="mark" class="form-label">Mark</label>
+  <input type="text" class="form-control" id="mark" formControlName="overallMark" [readonly]="isDisabled">
+</ng-container>

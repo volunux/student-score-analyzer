@@ -1,0 +1,32 @@
+<h2>{{entityTitle}} Add</h2>
+
+<form [formGroup]="entityForm" (ngSubmit)="onCreateEntity(entityForm.value)">
+  <app-entity-validation-error [errors]="errObj" [str]="errStr"></app-entity-validation-error>
+
+  <fieldset class="form-group wide">
+    <app-student-admission-number [entityForm]="entityForm" [disabled]="isCtrlDisabled"></app-student-admission-number>
+  </fieldset>
+
+  <fieldset class="form-group wide">
+    <app-student-first-name [entityForm]="entityForm" [disabled]="isCtrlDisabled"></app-student-first-name>
+  </fieldset>
+
+  <fieldset class="form-group wide">
+    <app-student-last-name [entityForm]="entityForm" [disabled]="isCtrlDisabled"></app-student-last-name>
+  </fieldset>
+
+  <fieldset class="form-group wide">
+    <app-student-email-address [entityForm]="entityForm" [disabled]="isCtrlDisabled"></app-student-email-address>
+  </fieldset>
+
+  <fieldset class="form-group wide">
+    <app-student-home-address [entityForm]="entityForm" [disabled]="isCtrlDisabled"></app-student-home-address>
+  </fieldset>
+
+  <div class="clear"></div>
+
+  <div class="form-group">
+    <button type="submit" class="form-btn-submit btn-blue" [disabled]="!entityForm.valid"> Submit </button>
+  </div>
+
+</form>

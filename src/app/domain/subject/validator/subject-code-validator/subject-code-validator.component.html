@@ -1,0 +1,11 @@
+<ng-container *ngIf="code && code?.invalid && (code?.dirty || code?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="code?.errors?.['required']"> Subject Code is required</li>
+      <li *ngIf="code?.errors?.['minlength']"> Subject Code should be at least {{code.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="code?.errors?.['maxlength']"> Subject Code should not be more than {{code.errors?.['maxlength'].requiredLength}} characters long</li>
+      <li *ngIf="code.errors?.['pattern']"> Subject code must be valid and should conform to standards e.g. MAT100 </li>
+      <li *ngIf="code.errors?.['existing']"> Subject code cannot be used at the moment because it is already taken. Please input another code </li>
+    </ul>
+  </div>
+</ng-container>

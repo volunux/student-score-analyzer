@@ -1,0 +1,123 @@
+<ng-container *ngIf="$entry; else noEntryDetail">
+  <h2 class="bold"> {{entityTitle}} </h2>
+
+  <div id="table-curves">
+    <table id='entry-detail'>
+      <colgroup>
+        <col class='parameter' />
+        <col class='prop-data' />
+      </colgroup>
+
+      <tbody>
+
+        <tr>
+          <th> Admission Number </th>
+          <td> {{$entry.$student.$admissionNumber | json}} </td>
+        </tr>
+
+        <tr>
+          <th>First Name </th>
+          <td> {{$entry.$student.$firstName}} </td>
+        </tr>
+
+        <tr>
+          <th> Last Name </th>
+          <td> {{$entry.$student.$lastName}} </td>
+        </tr>
+
+        <tr>
+          <th> Email Address </th>
+          <td> {{$entry.$student.$emailAddress}} </td>
+        </tr>
+
+        <tr>
+          <th> Home Address </th>
+          <td> {{$entry.$student.$homeAddress}} </td>
+        </tr>
+
+        <tr>
+          <th> Mean Score </th>
+          <td> {{$entry.$meanScore}} </td>
+        </tr>
+
+        <tr>
+          <th> Median Score </th>
+          <td> {{$entry.$medianScore}} </td>
+        </tr>
+
+        <tr>
+          <th> Mode Score </th>
+          <td> {{$entry.$modeScore}} </td>
+        </tr>
+
+        <tr>
+          <th> Created On </th>
+          <td> {{$entry.$student.$createdOn | date: 'fullDate'}} </td>
+        </tr>
+
+        <tr>
+          <th> Updated On </th>
+          <td> {{$entry.$student.$updatedOn | date: 'fullDate'}} </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+<br/><br /><br />
+  <h2 class="bold"> Subject and Scores </h2>
+
+<h4>Total Score: {{$entry.$totalScore}}</h4>
+
+<ng-container *ngIf="$entry.$scores.length > 0">
+
+  <table id="entries" class="entries">
+
+    <div class="clear"></div>
+
+    <colgroup>
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th class="center">S/N</th>
+        <th class="left">Subject Title</th>
+        <th class="left">Code</th>
+        <th class="center">Year</th>
+        <th class="center">Mark</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let subjectScore of $entry.$scores; index as i;">
+
+        <tr>
+          <td class="center">{{i + 1}}</td>
+          <td [title]="subjectScore.$subjectTitle">{{subjectScore.$subjectTitle}}</td>
+          <td class="left">{{subjectScore.$subjectCode}}</td>
+          <td class="center">{{subjectScore.$subjectYear}}</td>
+          <td class="center">{{subjectScore.$score}} </td>
+        </tr>
+
+
+      </ng-container>
+    </tbody>
+
+  </table>
+
+</ng-container>
+
+
+<div class="clear"></div>
+
+</ng-container>
+
+<ng-template #noEntryDetail>
+  <app-no-entry-detail [entityTitle]="entityTitle" [entry]="$entry"></app-no-entry-detail>
+</ng-template>

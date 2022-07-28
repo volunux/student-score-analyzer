@@ -1,0 +1,5 @@
+<ng-container *ngIf="entityForm" [formGroup]="entityForm">
+  <label for="lastName" class="form-label">Last Name</label>
+  <input type="text" class="form-control" id="lastName" formControlName="lastName" [readonly]="isDisabled">
+  <app-student-last-name-validator [lastName]="lastName"></app-student-last-name-validator>
+</ng-container>

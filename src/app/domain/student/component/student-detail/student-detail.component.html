@@ -1,0 +1,68 @@
+<ng-container *ngIf="$entry; else noEntryDetail">
+  <h2 class="bold"> {{entityTitle}} </h2>
+
+  <div id="table-curves">
+    <table id='entry-detail'>
+      <colgroup>
+        <col class='parameter' />
+        <col class='prop-data' />
+      </colgroup>
+
+      <tbody>
+
+        <tr>
+          <th> Admission Number </th>
+          <td> {{$entry.$admissionNumber}} </td>
+        </tr>
+
+        <tr>
+          <th>First Name </th>
+          <td> {{$entry.$firstName}} </td>
+        </tr>
+
+        <tr>
+          <th> Last Name </th>
+          <td> {{$entry.$lastName}} </td>
+        </tr>
+
+        <tr>
+          <th> Email Address </th>
+          <td> {{$entry.$emailAddress}} </td>
+        </tr>
+
+        <tr>
+          <th> Home Address </th>
+          <td> {{$entry.$homeAddress}} </td>
+        </tr>
+
+        <tr>
+          <th> Created On </th>
+          <td> {{$entry.$createdOn | date: 'fullDate'}} </td>
+        </tr>
+
+        <tr>
+          <th> Updated On </th>
+          <td> {{$entry.$updatedOn | date: 'fullDate'}} </td>
+        </tr>
+
+        <tr>
+          <th>Scores</th>
+          <!-- <td><a routerLink="/score/detail/{{$entry.$id}}" class="form-btn-submit btn-blue"> View Scores </a></td>
+          <td><a routerLink="/score/detail/{{$entry.$id}}" class="form-btn-submit btn-blue"> Analysis Scores </a></td>
+          <td><a routerLink="/score/update/{{$entry.$id}}" class="form-btn-submit btn-blue"> Analysis Scores </a></td> -->
+          <td class="tr-changes-menu">
+            <a routerLink="/score/detail/{{$entry.$id}}" class="btn-navy"> <span class="fa fa-eye"></span> Detail</a>
+            <a routerLink="/score/analysis/{{$entry.$id}}" class="btn-blue"><span class="fa fa-eye"></span> Analysis</a>
+            <a routerLink="/score/update/{{$entry.$id}}" class="btn-green"> <span class="fa fa-pencil"></span> Update</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</ng-container>
+
+<ng-template #noEntryDetail>
+  <app-no-entry-detail [entityTitle]="entityTitle" [entry]="$entry"></app-no-entry-detail>
+</ng-template>

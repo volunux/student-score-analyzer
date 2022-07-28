@@ -1,0 +1,9 @@
+<ng-container *ngIf="firstName && firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="firstName?.errors?.['required']"> First Name is required</li>
+      <li *ngIf="firstName?.errors?.['minlength']"> First Name should be at least {{firstName.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="firstName?.errors?.['maxlength']"> First Name should not be more than {{firstName.errors?.['maxlength'].requiredLength}} characters long</li>
+    </ul>
+  </div>
+</ng-container>

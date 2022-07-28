@@ -1,0 +1,38 @@
+<h2>Student Score Add and Update</h2>
+
+<ng-container *ngIf ="$scoreUpdateDto; else noStudentEntry">
+  <form [formGroup]="entityForm" (ngSubmit)="onUpdateEntity(entityForm.value)">
+    <app-entity-validation-error [errors]="errObj" [str]="errStr"></app-entity-validation-error>
+  
+    <div formArrayName="scores" *ngFor="let result of scores?.controls; let i = index">
+  
+      <div [formGroupName]="i" class="form-group-parent">
+        <fieldset class="form-group form-group-3">
+          <app-score-subject-title [entityForm]="result"></app-score-subject-title>
+        </fieldset>
+        <fieldset class="form-group form-group-3">
+          <app-score-subject-code [entityForm]="result"></app-score-subject-code>
+        </fieldset>
+        <fieldset class="form-group form-group-3">
+          <app-score-subject-mark [entityForm]="result" [disabled]="isCtrlDisabled"></app-score-subject-mark>
+        </fieldset>
+        <app-score-subject-mark-validator [mark]="result.get('overallMark')"></app-score-subject-mark-validator>
+      </div>
+
+  
+    </div>
+  
+    <div class="clear"></div>
+  
+    <div class="form-group">
+      <button type="submit" class="form-btn-submit btn-blue" [disabled]="!entityForm.valid"> Submit
+      </button>
+    </div>
+  
+  </form>
+  
+</ng-container>
+
+<ng-template #noStudentEntry>
+    <p>The Student entry you want to update does not exist in the record or cannot be retrieved.</p>
+</ng-template>

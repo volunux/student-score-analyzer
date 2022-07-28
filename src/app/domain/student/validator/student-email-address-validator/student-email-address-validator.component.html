@@ -1,0 +1,11 @@
+<ng-container *ngIf="emailAddress && emailAddress?.invalid && (emailAddress?.dirty || emailAddress?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="emailAddress?.errors?.['required']">Email Address is required</li>
+      <li *ngIf="emailAddress?.errors?.['minlength']">Email Address should be at least {{emailAddress.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="emailAddress?.errors?.['maxlength']">Email Address should not be more than {{emailAddress.errors?.['maxlength'].requiredLength}} characters long</li>
+      <li *ngIf="emailAddress.errors?.['pattern']"> Email Address must be valid and should conform to standards e.g. david@example.com </li>
+      <li *ngIf="emailAddress.errors?.['existing']"> Email Address cannot be used at the moment because it is already taken by another user. Please input another email address </li>
+    </ul>
+  </div>
+</ng-container>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="overallMark && overallMark?.invalid && (overallMark?.dirty || overallMark?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="overallMark?.errors?.['required']">Overall Mark is required</li>
+      <li *ngIf="overallMark?.errors?.['min']">Overall Mark should be at least {{overallMark.errors?.['min'].min}} </li>
+      <li *ngIf="overallMark?.errors?.['max']">Overall Mark should not be greater than {{overallMark.errors?.['max'].max}} </li>
+      <li *ngIf="overallMark.errors?.['type']"> Overall Mark must be valid, an integer and should conform to specification e.g. 28 </li>
+    </ul>
+  </div>
+</ng-container>

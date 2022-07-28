@@ -1,0 +1,9 @@
+<ng-container *ngIf="homeAddress && homeAddress?.invalid && (homeAddress?.dirty || homeAddress?.touched)">
+  <div class="errors">
+    <ul class="ctrl-error-list">
+      <li *ngIf="homeAddress?.errors?.['required']"> Home Address is required</li>
+      <li *ngIf="homeAddress?.errors?.['minlength']"> Home Address should be at least {{homeAddress.errors?.['minlength'].requiredLength}} characters long</li>
+      <li *ngIf="homeAddress?.errors?.['maxlength']"> Home Address should not be more than {{homeAddress.errors?.['maxlength'].requiredLength}} characters long</li>
+    </ul>
+  </div>
+</ng-container>

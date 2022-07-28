@@ -1,0 +1,5 @@
+<ng-container *ngIf="entityForm" [formGroup]="entityForm">
+  <label for="emailAddress" class="form-label">Email Address</label>
+  <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress" [readonly]="isDisabled">
+  <app-student-email-address-validator [emailAddress]="emailAddress"></app-student-email-address-validator>
+</ng-container>

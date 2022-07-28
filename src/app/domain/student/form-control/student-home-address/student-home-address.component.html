@@ -1,0 +1,5 @@
+<ng-container *ngIf="entityForm" [formGroup]="entityForm">
+  <label for="homeAddress" class="form-label">Home Address</label>
+  <textarea id="homeAddress" class="form-control form-control-textarea" formControlName="homeAddress" [readonly]="isDisabled"></textarea>
+  <app-student-home-address-validator [homeAddress]="homeAddress"></app-student-home-address-validator>
+</ng-container>

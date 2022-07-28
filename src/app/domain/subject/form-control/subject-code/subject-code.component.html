@@ -1,0 +1,5 @@
+<ng-container *ngIf="entityForm" [formGroup]="entityForm">
+  <label for="code" class="form-label">Code</label>
+  <input type="text" class="form-control" id="code" formControlName="code" [readonly]="isDisabled">
+  <app-subject-code-validator [code]="code"></app-subject-code-validator>
+</ng-container>
