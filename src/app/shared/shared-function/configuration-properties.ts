@@ -1,6 +1,6 @@
 export class ConfigurationProperties {
 
   public static getApiHost(): string {
-    return "http://localhost:8088";
+    return "https://desolate-harbor-08314.herokuapp.com/";
   }
 }

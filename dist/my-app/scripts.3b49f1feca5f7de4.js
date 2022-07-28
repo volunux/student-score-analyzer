@@ -1,1 +1,0 @@
-window.onload=()=>{document.getElementById("menu-icon").addEventListener("click",function(){var e=document.getElementById("myTopnav");"navbar"===e.className?e.className+=" responsive":e.className="navbar"})};
